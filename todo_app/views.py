@@ -17,3 +17,16 @@ def add_task(request):
         return  HttpResponseRedirect('/')
     else:
         return render(request, 'add_task.html',{'status_choices':status_choices})
+
+
+def task_detail(request):
+    task_id = request.GET.get('id')
+    if task_id:
+        try:
+            task = Task.objects.get(id=task_id)
+            return render(request,'task_detail.html',{'task':task})
+        except Task.DoesNotExist:
+            return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
+
