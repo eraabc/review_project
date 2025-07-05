@@ -16,6 +16,10 @@
             <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
         </div>
         <div class="mb-3">
+            <label for="description" class="form-label">Дополнительное описание</label>
+            <textarea class="form-control" id="description" name="extra_info" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
             <label for="status" class="form-label">Статус</label>
             <select class="form-select" id="status" name="status" required>
                 {% for status in status_choices %}

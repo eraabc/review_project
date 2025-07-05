@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h5 class="card-title">Тема задачи - {{ task.title }}</h5>
                 <p class="card-text">Описание задачи - {{ task.description }}</p>
-                <p class="card-text">Дополнительное описание - {{ task.extra_info }}</p>
+                <p class="card-text">Дополнительное описание - {{ task.extra_info|default_if_none:"нет записи" }}</p>
                 <p class="card-text">Статус - {{ task.get_status_display  }}</p>
                 <p class="card-text">Дата выполнения - {{ task.finish_date }}</p>
             </div>
@@ -16,6 +16,5 @@
             {% csrf_token %}
             <button type="submit" class="btn btn-danger">Удалить задачу</button>
         </form>
-        <a class="btn btn-primary mt-5" href="{% url 'task_list' %}" role="button">На главную страницу</a>
     </div>
 {% endblock %}

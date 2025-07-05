@@ -11,9 +11,10 @@ def add_task(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         description = request.POST.get('description')
+        extra_info = request.POST.get('extra_info')
         status = request.POST.get('status')
         finish_date = request.POST.get('finish_date')
-        task = Task.objects.create(title=title,description=description,status=status,finish_date=finish_date)
+        task = Task.objects.create(title=title,description=description, extra_info=extra_info ,status=status,finish_date=finish_date)
         return redirect('task_detail',pk = task.pk)
     else:
         return render(request, 'add_task.html',{'status_choices':status_choices})
