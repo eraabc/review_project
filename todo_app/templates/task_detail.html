@@ -12,9 +12,7 @@
                 <p class="card-text">Дата выполнения - {{ task.finish_date }}</p>
             </div>
         </div>
-        <form method="post" action="{% url 'delete_task' task.id %}" class="mt-3">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Удалить задачу</button>
-        </form>
+        <a class="btn btn-danger mt-3" href="{% url 'delete_task' task.id %}">Удалить задачу</a>
+
     </div>
 {% endblock %}

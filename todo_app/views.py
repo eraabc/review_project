@@ -38,7 +38,7 @@ def delete_task(request, task_id):
     if request.method == "POST":
         task.delete()
         return redirect('task_list')
-    return HttpResponseRedirect(f'/task_detail/?id={task_id}')
+    return render(request,'confirm_delete.html',{'task':task})
 
 def update_task(request,*args , pk , **kwargs):
     task = get_object_or_404(Task, pk=pk)
