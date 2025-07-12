@@ -32,3 +32,16 @@ def delete_task(request, task_id):
         task.delete()
         return redirect('task_list')
     return HttpResponseRedirect(f'/task_detail/?id={task_id}')
+
+def update_task(request,*args , pk , **kwargs):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'POST':
+        task.title = request.POST.get('title')
+        task.description = request.POST.get('description')
+        task.extra_info = request.POST.get('extra_info')
+        task.status = request.POST.get('status')
+        task.finish_date = request.POST.get('finish_date')
+        task.save()
+        return redirect('task_detail',pk = task.pk)
+    else:
+        return  render(request,'task_update.html',{'task':task,'status_choices':status_choices})

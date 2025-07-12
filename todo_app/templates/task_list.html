@@ -12,6 +12,7 @@
                         <h5 class="card-title">{{ task.title }}</h5>
                         <p class="card-text">{{ task.description }}</p>
                         <a href="{% url 'task_detail' task.id %}" class="btn btn-primary">Подробно</a>
+                        <a href="{% url 'update_task' task.id %}" class="btn btn-primary">Редактировать</a>
                     </div>
                 </div>
             </div>

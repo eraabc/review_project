@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Добавить задачу{% endblock %}
+
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Создание задачи</h2>
+        <form method="post">
+            {% include 'partial/task_form.html' with button_text='Создать' %}
+        </form>
+    </div>
+{% endblock %}
