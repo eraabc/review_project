@@ -1,8 +1,7 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404,redirect
 
 from .forms import TaskForm
-from .models import  Task,status_choices
+from .models import  Task
 
 def task_list(request):
     tasks = Task.objects.all()
@@ -19,7 +18,7 @@ def add_task(request):
             status = form.cleaned_data.get('status')
             finish_date = form.cleaned_data.get('finish_date')
             task = Task.objects.create(title=title,description=description, extra_info=extra_info ,status=status,finish_date=finish_date)
-            return redirect('task_detail',pk = task.pk)
+            return redirect('task_detail',slug = task.slug)
         else:
             return render(request,'add_task.html',{'form':form})
     else:
@@ -28,8 +27,8 @@ def add_task(request):
 
 
 def task_detail(request,**kwargs):
-    task_id = kwargs.get('pk')
-    task = get_object_or_404(Task,pk=task_id)
+    task_slug = kwargs.get('slug')
+    task = get_object_or_404(Task,slug=task_slug)
     return render(request,'task_detail.html',{'task':task})
 
 
@@ -51,7 +50,7 @@ def update_task(request,*args , pk , **kwargs):
             task.status = form.cleaned_data.get('status')
             task.finish_date = form.cleaned_data.get('finish_date')
             task.save()
-            return redirect('task_detail',pk = task.pk)
+            return redirect('task_detail',slug = task.slug)
         else:
             return  redirect('update_task',{'form':form})
     else:
