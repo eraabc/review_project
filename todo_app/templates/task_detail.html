@@ -8,7 +8,10 @@
                 <h5 class="card-title">Тема задачи - {{ task.title }}</h5>
                 <p class="card-text">Описание задачи - {{ task.description|default_if_none:"нет записи" }}</p>
                 <p class="card-text">Статус - {{ task.status  }}</p>
-                <p class="card-text">Тип - {{ task.type  }}</p>
+                <p class="card-text">Типы - {% for type in task.type.all %}
+                    {% if forloop.last %} {{ type }}. {% else %} {{ type }},{% endif %}
+                {% endfor %}
+                </p>
                 <p class="card-text">Дата создание - {{ task.created_at|date:"Y-m-d" }}</p>
             </div>
         </div>

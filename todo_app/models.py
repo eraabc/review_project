@@ -6,7 +6,7 @@ class Task(models.Model):
     title = models.CharField(max_length=100,verbose_name='Название задачи',unique=True)
     description = models.TextField(verbose_name='Описание',null=True,blank=True)
     status = models.ForeignKey('todo_app.Status',on_delete=models.PROTECT,verbose_name='Статус',related_name='tasks')
-    type = models.ForeignKey('todo_app.Type',on_delete=models.PROTECT,verbose_name='Тип',related_name='tasks')
+    type = models.ManyToManyField('todo_app.Type',verbose_name='Типы',related_name='tasks',through="TaskType",through_fields=('task','type'))
     created_at = models.DateTimeField(auto_now_add=True,verbose_name='Время создания')
     updated_at = models.DateTimeField(auto_now=True,verbose_name='Время обновления')
     slug = models.SlugField(max_length=100,verbose_name='Слаг',blank=True,null=True,unique=True)
@@ -48,3 +48,15 @@ class Type(models.Model):
         db_table = 'types'
         verbose_name = 'Тип'
         verbose_name_plural = 'Типы'
+
+
+
+class TaskType(models.Model):
+    task = models.ForeignKey('todo_app.Task',on_delete=models.PROTECT,verbose_name='Задача',related_name='task_types')
+    type = models.ForeignKey('todo_app.Type', on_delete=models.PROTECT, verbose_name='Тип',
+                             related_name='type_tasks')
+
+    class Meta:
+        db_table = 'task_types'
+        verbose_name = 'Типы и Задачи'
+        verbose_name_plural = 'Типы и Задачи'
