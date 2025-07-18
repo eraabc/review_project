@@ -1,0 +1,122 @@
+[
+{
+  "model": "todo_app.task",
+  "pk": 2,
+  "fields": {
+    "title": "Сделать дз",
+    "description": "Посмотреть все уроки и тд",
+    "status": 2,
+    "type": 1,
+    "created_at": "2025-07-17T19:44:46.780Z",
+    "updated_at": "2025-07-17T19:44:46.780Z",
+    "slug": "sdelat-dz"
+  }
+},
+{
+  "model": "todo_app.task",
+  "pk": 3,
+  "fields": {
+    "title": "Форма отправляется 2 раза",
+    "description": "Так так",
+    "status": 1,
+    "type": 2,
+    "created_at": "2025-07-17T19:45:10.625Z",
+    "updated_at": "2025-07-17T19:45:10.625Z",
+    "slug": "forma-otpravlyaetsya-2-raza"
+  }
+},
+{
+  "model": "todo_app.task",
+  "pk": 4,
+  "fields": {
+    "title": "Улучшить дизайн сайта",
+    "description": "Поменять кнопу и формы и стили",
+    "status": 1,
+    "type": 3,
+    "created_at": "2025-07-17T19:45:36.376Z",
+    "updated_at": "2025-07-17T19:45:36.376Z",
+    "slug": "uluchshit-dizajn-sajta"
+  }
+},
+{
+  "model": "todo_app.task",
+  "pk": 5,
+  "fields": {
+    "title": "Не работает сервер",
+    "description": "Так так",
+    "status": 2,
+    "type": 2,
+    "created_at": "2025-07-17T19:45:59.505Z",
+    "updated_at": "2025-07-17T19:45:59.505Z",
+    "slug": "ne-rabotaet-server"
+  }
+},
+{
+  "model": "todo_app.task",
+  "pk": 6,
+  "fields": {
+    "title": "Доделать задачу",
+    "description": "Выполнить авторизацию",
+    "status": 1,
+    "type": 1,
+    "created_at": "2025-07-17T19:46:26.995Z",
+    "updated_at": "2025-07-17T19:46:26.995Z",
+    "slug": "dodelat-zadachu"
+  }
+},
+{
+  "model": "todo_app.task",
+  "pk": 7,
+  "fields": {
+    "title": "Улучшить читаемость кода",
+    "description": "",
+    "status": 2,
+    "type": 3,
+    "created_at": "2025-07-17T19:46:53.307Z",
+    "updated_at": "2025-07-17T19:46:53.307Z",
+    "slug": "uluchshit-chitaemost-koda"
+  }
+},
+{
+  "model": "todo_app.status",
+  "pk": 1,
+  "fields": {
+    "title": "New"
+  }
+},
+{
+  "model": "todo_app.status",
+  "pk": 2,
+  "fields": {
+    "title": "In Progress"
+  }
+},
+{
+  "model": "todo_app.status",
+  "pk": 3,
+  "fields": {
+    "title": "Done"
+  }
+},
+{
+  "model": "todo_app.type",
+  "pk": 1,
+  "fields": {
+    "title": "Task"
+  }
+},
+{
+  "model": "todo_app.type",
+  "pk": 2,
+  "fields": {
+    "title": "Bag"
+  }
+},
+{
+  "model": "todo_app.type",
+  "pk": 3,
+  "fields": {
+    "title": "Improvement"
+  }
+}
+]

@@ -8,7 +8,7 @@ from .models import  Task
 
 class TaskListView(View):
     def get(self,request,*args,**kwargs):
-        tasks = Task.objects.all()
+        tasks = Task.objects.order_by('-created_at')
         return  render(request,'task_list.html', context={'tasks':tasks})
 
 
