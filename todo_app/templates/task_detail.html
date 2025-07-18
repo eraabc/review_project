@@ -6,10 +6,10 @@
         <div class="card mt-5">
             <div class="card-body">
                 <h5 class="card-title">Тема задачи - {{ task.title }}</h5>
-                <p class="card-text">Описание задачи - {{ task.description }}</p>
-                <p class="card-text">Дополнительное описание - {{ task.extra_info|default_if_none:"нет записи" }}</p>
-                <p class="card-text">Статус - {{ task.get_status_display  }}</p>
-                <p class="card-text">Дата выполнения - {{ task.finish_date }}</p>
+                <p class="card-text">Описание задачи - {{ task.description|default_if_none:"нет записи" }}</p>
+                <p class="card-text">Статус - {{ task.status  }}</p>
+                <p class="card-text">Тип - {{ task.type  }}</p>
+                <p class="card-text">Дата создание - {{ task.created_at|date:"Y-m-d" }}</p>
             </div>
         </div>
         <a class="btn btn-danger mt-3" href="{% url 'delete_task' task.id %}">Удалить задачу</a>
